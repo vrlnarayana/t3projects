@@ -8,12 +8,31 @@ import crawl.menu as menu
 import crawl.crawl as crawl
 import ast
 import pandas as pd
+from streamlit_chat import message
+from langchain.chains import ConversationChain
+from langchain.llms import OpenAI
+
+load_dotenv()
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
+def load_chain():
+    """Logic for loading the chain you want to use should go here."""
+    llm = OpenAI(temperature=0)
+    chain = ConversationChain(llm=llm)
+    return chain
+
+chain = load_chain()
 
 def main():
     load_dotenv()
-    openai.api_key = os.getenv("OPENAI_API_KEY")
     menu_out = menu.menu()
     if menu_out == 'Chat':
+        if "generated" not in st.session_state:
+            st.session_state["generated"] = []
+
+        if "past" not in st.session_state:
+            st.session_state["past"] = []
+
         # connect to DuckDB database
         conn = duckdb.connect(database='duckdb/turiyatree.db')
         # Execute a SQL query to get the table names
@@ -43,6 +62,7 @@ def main():
                 model="text-embedding-ada-002",
                 input=prompt
             )
+ 
             # Extract the vector embeddings from the API response and print them
             search_embedding = np.array(response.data[0].embedding)
             # Compute cosine similarity between the search embedding and all embeddings in the table
@@ -77,17 +97,16 @@ def main():
             promptpreempt = "You are a representative of the company and you will answer based on the information you have. If I am confident in my answer, I will provide it to you. If you don't have enough information to provide a confident answer, you will let people know that you don't have enough information."
             prompt1 = promptpreempt+f"{most_similar_contents}\n\nQuestion: {search_str}\nAnswer:"
             #st.write(prompt1)
-            response = openai.Completion.create(
-                engine=model_engine,
-                prompt=prompt1,
-                temperature=0,
-                max_tokens=512,
-                n=1,
-                stop=None,
-            )
+            response = chain.run(input=prompt1)
+            st.session_state.past.append(search_str)
+            st.session_state.generated.append(response)
             st.write("\n")
             # print the generated response
-            st.write(response.choices[0].text)
+            if st.session_state["generated"]:
+                for i in range(len(st.session_state["generated"]) - 1, -1, -1):
+                    message(st.session_state["generated"][i], key=str(i))
+                    message(st.session_state["past"][i], is_user=True, key=str(i) + "_user")
+
             st.write("\n")
             #st.write("most_similar_content", most_similar_contents)
     elif menu_out == 'Crawl':
