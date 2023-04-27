@@ -18,4 +18,4 @@ def app():
 
         st.sidebar.divider()
     else:
-        st.write("\n",allowentry)
+        st.sidebar.write("\n",allowentry)

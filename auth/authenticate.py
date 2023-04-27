@@ -33,4 +33,4 @@ def authenticate(yourname, yourpass):
         else:
             return "Enter passcode"
     else:
-        return "Enter your name"
+        return "Enter your name & passcode"
