@@ -15,14 +15,14 @@ import sales.populate_data as dpop
 load_dotenv()
 
 def sqlite_conn():
-    con = sqlite3.connect('turiyatree.db')
+    con = sqlite3.connect('db/turiyatree.db')
     return con
 
 def fn_generate_query(cursor):
     # Get list of tables in database
     tables = cursor.execute("SELECT name FROM sqlite_master WHERE type='table';").fetchall()
 
-    # Loop through tables and columns
+    # To Loop through tables and columns
     query = ""
     for table in tables:
         table_name = table[0]
@@ -53,9 +53,9 @@ def main():
         if text and show:
             db = SQLDatabase.from_uri("sqlite:///db/turiyatree.db")
             llm = OpenAI(temperature=0)
-            toolkit = SQLDatabaseToolkit(db=db)
+            toolkit = SQLDatabaseToolkit(db=db, llm=llm)
             agent_executor = create_sql_agent(
-                llm=OpenAI(temperature=0),
+                llm=llm,
                 toolkit=toolkit,
                 verbose=True
             )
@@ -66,6 +66,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
-

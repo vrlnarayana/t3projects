@@ -2,6 +2,7 @@ import streamlit as st
 import sales.salesquery as sq
 import crawl.chatbot as cb
 import auth.login as login
+import langchain_demo
 
 def app():
     st.sidebar.image('images/black-logo-text.png')

@@ -77,8 +77,8 @@ def main():
             # Find the most similar content
             sorted_indices = np.argsort(similarity_scores)[::-1]  # Sorts indices in descending order
 
-            top_10_indices = sorted_indices[:20]  # Take the top 10 indices
-            top_5_indices = sorted_indices[:10]  # Take the top 5 indices
+            top_10_indices = sorted_indices[:20]  # Take the top 20 indices
+            top_5_indices = sorted_indices[:10]  # Take the top 10 indices
 
             most_similar_contents = []
             for index in top_10_indices:

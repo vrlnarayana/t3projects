@@ -1,0 +1,9 @@
+streamlit
+streamlit_chat
+db-sqlite3
+duckdb
+langchain
+python-dotenv
+lxml
+BeautifulSoup
+openai
