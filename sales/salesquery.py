@@ -53,8 +53,7 @@ def main():
         if text and show:
             db = SQLDatabase.from_uri("sqlite:///db/turiyatree.db")
             llm = OpenAI(temperature=0)
-            #toolkit = SQLDatabaseToolkit(db=db, llm=llm)
-            toolkit = SQLDatabaseToolkit(db=db)
+            toolkit = SQLDatabaseToolkit(db=db, llm=llm)
             agent_executor = create_sql_agent(
                 llm=llm,
                 toolkit=toolkit,
