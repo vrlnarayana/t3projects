@@ -11,7 +11,7 @@ from langchain.agents import AgentExecutor
 import sqlite3
 import sales.menu as menu
 import sales.populate_data as dpop
-
+import sales.frontend as fend
 load_dotenv()
 
 def sqlite_conn():
@@ -63,6 +63,8 @@ def main():
             st.write(out)
     elif menu_out == "Populate":
         dpop.data_populate()
+    elif menu_out == 'Chat UI':
+        fend.frontend_app()
 
 if __name__ == '__main__':
     main()

@@ -1,0 +1,52 @@
+{
+    "survey": {
+      "title": "Customer Satisfaction Survey",
+      "questions": [
+        {
+          "question": "How satisfied are you with the product?",
+          "options": {
+            "1": "Very Satisfied",
+            "2": "Satisfied",
+            "3": "Neutral",
+            "4": "Unsatisfied"
+          }
+        },
+        {
+          "question": "How likely are you to recommend the product to a friend?",
+          "options": {
+            "1": "Very Likely",
+            "2": "Likely",
+            "3": "Neutral",
+            "4": "Unlikely"
+          }
+        },
+        {
+          "question": "How would you rate the quality of the product?",
+          "options": {
+            "1": "Excellent",
+            "2": "Good",
+            "3": "Average",
+            "4": "Poor"
+          }
+        },
+        {
+          "question": "How would you rate the customer service?",
+          "options": {
+            "1": "Excellent",
+            "2": "Good",
+            "3": "Average",
+            "4": "Poor"
+          }
+        },
+        {
+          "question": "How would you rate the value for money?",
+          "options": {
+            "1": "Excellent",
+            "2": "Good",
+            "3": "Average",
+            "4": "Poor"
+          }
+        }
+      ]
+    }
+  }

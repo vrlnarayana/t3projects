@@ -5,5 +5,11 @@ duckdb
 langchain
 python-dotenv
 lxml
-BeautifulSoup
+beautifulsoup4
 openai
+openapi-schema-pydantic==1.2.4
+uvicorn
+black==23.3.0
+fastapi==0.95.1
+requests==2.29.0
+SQLAlchemy==2.0.12
