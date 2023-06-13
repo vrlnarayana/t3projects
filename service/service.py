@@ -181,7 +181,7 @@ async def check_action(query: str):
     :param query: str - The query to classify.
     :return: A JSON object indicating whether the query is asking to read or write something.
     """
-    openai.api_key = "YOUR_API_KEY"
+    openai.api_key = OPENAI_API_KEY
     # Create a prompt for the OpenAI API to classify the query
     prompt = f"Is the following sentence asking to read, write or update something?\n\n{query}\n\nResponse:"
 

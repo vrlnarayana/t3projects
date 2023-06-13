@@ -3,15 +3,16 @@ import requests
 import streamlit as st
 from dotenv import load_dotenv
 import openai
+from sales.llm_agent import LLMAgent
 
 load_dotenv()
 
 
 # Define the base URL for the API
 BASE_URL = "http://localhost:8000"
-
+api_schema_path = 'api_schema.json'
 OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
-
+agent = LLMAgent(api_schema_path)
 # Define the available API endpoints_map
 endpoints_map = {
     "Read Leads": "/leads",
@@ -124,7 +125,7 @@ def frontend_app():
 
         prompt = st.text_input(
             "Prompt",
-            value="Enter your message here...",
+            value="",
         )
 
         if st.button("Send"):
@@ -135,11 +136,12 @@ def frontend_app():
                         "content": prompt,
                     }
                 ]
-                response = openai.ChatCompletion.create(
-                    model="gpt-3.5-turbo",
-                    messages=st.session_state["messages"],
-                )
-                message_response = response["choices"][0]["message"]["content"]
+                # response = openai.ChatCompletion.create(
+                #     model="gpt-3.5-turbo",
+                #     messages=st.session_state["messages"],
+                # )
+                response = agent.get_query_plan(st.session_state["messages"])
+                message_response = response #["choices"][0]["message"]["content"]
                 st.session_state["messages"] += [
                     {
                         "role": "system",
