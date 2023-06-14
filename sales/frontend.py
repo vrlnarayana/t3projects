@@ -141,7 +141,7 @@ def frontend_app():
                 #     messages=st.session_state["messages"],
                 # )
                 response = agent.get_query_plan(st.session_state["messages"])
-                message_response = response #["choices"][0]["message"]["content"]
+                message_response = response 
                 st.session_state["messages"] += [
                     {
                         "role": "system",

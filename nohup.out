@@ -1808,3 +1808,148 @@ Traceback (most recent call last):
           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 duckdb.IOException: IO Error: Cannot open file "/workspace/t3projects/duckdb/turiyatree.db": No such file or directory
 INFO:     127.0.0.1:42946 - "GET /leads?skip=0&limit=100 HTTP/1.1" 200 OK
+INFO:     Started server process [1318]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+
+Collecting usage statistics. To deactivate, set browser.gatherUsageStats to False.
+
+
+  You can now view your Streamlit app in your browser.
+
+  Network URL: http://10.0.5.2:8501
+  External URL: http://35.197.108.21:8501
+
+INFO:     127.0.0.1:55694 - "GET /leads?skip=0&limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42130 - "GET /leads?skip=0&limit=100 HTTP/1.1" 200 OK
+2023-06-14 08:04:56.877 Uncaught app exception
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 552, in _run_script
+    exec(code, module.__dict__)
+  File "/workspace/t3projects/app.py", line 2, in <module>
+    from research import app
+  File "/workspace/t3projects/research.py", line 2, in <module>
+    import sales.salesquery as sq
+  File "/workspace/t3projects/sales/salesquery.py", line 14, in <module>
+    import sales.frontend as fend
+  File "/workspace/t3projects/sales/frontend.py", line 6, in <module>
+    from sales.llm_agent import LLMAgent
+  File "/workspace/t3projects/sales/llm_agent.py", line 10, in <module>
+    prompt = PromptTemplate(
+             ^^^^^^^^^^^^^^^
+  File "pydantic/main.py", line 341, in pydantic.main.BaseModel.__init__
+pydantic.error_wrappers.ValidationError: 1 validation error for PromptTemplate
+__root__
+  Invalid prompt schema; check for mismatched or missing input parameters. 'order_number' (type=value_error)
+2023-06-14 08:05:11.613 Uncaught app exception
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 552, in _run_script
+    exec(code, module.__dict__)
+  File "/workspace/t3projects/app.py", line 2, in <module>
+    from research import app
+  File "/workspace/t3projects/research.py", line 2, in <module>
+    import sales.salesquery as sq
+  File "/workspace/t3projects/sales/salesquery.py", line 14, in <module>
+    import sales.frontend as fend
+  File "/workspace/t3projects/sales/frontend.py", line 6, in <module>
+    from sales.llm_agent import LLMAgent
+  File "/workspace/t3projects/sales/llm_agent.py", line 10, in <module>
+    prompt = PromptTemplate(
+             ^^^^^^^^^^^^^^^
+  File "pydantic/main.py", line 341, in pydantic.main.BaseModel.__init__
+pydantic.error_wrappers.ValidationError: 1 validation error for PromptTemplate
+__root__
+  Invalid prompt schema; check for mismatched or missing input parameters. 'order_number' (type=value_error)
+2023-06-14 08:05:48.759 Uncaught app exception
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 552, in _run_script
+    exec(code, module.__dict__)
+  File "/workspace/t3projects/app.py", line 2, in <module>
+    from research import app
+  File "/workspace/t3projects/research.py", line 2, in <module>
+    import sales.salesquery as sq
+  File "/workspace/t3projects/sales/salesquery.py", line 14, in <module>
+    import sales.frontend as fend
+  File "/workspace/t3projects/sales/frontend.py", line 6, in <module>
+    from sales.llm_agent import LLMAgent
+  File "/workspace/t3projects/sales/llm_agent.py", line 10, in <module>
+    prompt = PromptTemplate(
+             ^^^^^^^^^^^^^^^
+  File "pydantic/main.py", line 341, in pydantic.main.BaseModel.__init__
+pydantic.error_wrappers.ValidationError: 1 validation error for PromptTemplate
+__root__
+  Invalid prompt schema; check for mismatched or missing input parameters. 'order_number' (type=value_error)
+INFO:     127.0.0.1:45392 - "GET /leads?skip=0&limit=100 HTTP/1.1" 200 OK
+2023-06-14 08:10:19.434 Uncaught app exception
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 552, in _run_script
+    exec(code, module.__dict__)
+  File "/workspace/t3projects/app.py", line 8, in <module>
+    run()
+  File "/workspace/t3projects/app.py", line 5, in run
+    app()
+  File "/workspace/t3projects/research.py", line 16, in app
+    sq.main()
+  File "/workspace/t3projects/sales/salesquery.py", line 67, in main
+    fend.frontend_app()
+  File "/workspace/t3projects/sales/frontend.py", line 143, in frontend_app
+    response = agent.get_query_plan(st.session_state["messages"])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/t3projects/sales/llm_agent.py", line 45, in get_query_plan
+    for item in response["choices"]:
+                ~~~~~~~~^^^^^^^^^^^
+TypeError: string indices must be integers, not 'str'
+2023-06-14 08:12:09.659 Uncaught app exception
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 552, in _run_script
+    exec(code, module.__dict__)
+  File "/workspace/t3projects/app.py", line 8, in <module>
+    run()
+  File "/workspace/t3projects/app.py", line 5, in run
+    app()
+  File "/workspace/t3projects/research.py", line 16, in app
+    sq.main()
+  File "/workspace/t3projects/sales/salesquery.py", line 67, in main
+    fend.frontend_app()
+  File "/workspace/t3projects/sales/frontend.py", line 143, in frontend_app
+    response = agent.get_query_plan(st.session_state["messages"])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/t3projects/sales/llm_agent.py", line 46, in get_query_plan
+    for item in response["choices"]:
+                ~~~~~~~~^^^^^^^^^^^
+TypeError: string indices must be integers, not 'str'
+2023-06-14 08:13:09.268 Uncaught app exception
+Traceback (most recent call last):
+  File "/workspace/.pyenv_mirror/user/current/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 552, in _run_script
+    exec(code, module.__dict__)
+  File "/workspace/t3projects/app.py", line 8, in <module>
+    run()
+  File "/workspace/t3projects/app.py", line 5, in run
+    app()
+  File "/workspace/t3projects/research.py", line 16, in app
+    sq.main()
+  File "/workspace/t3projects/sales/salesquery.py", line 67, in main
+    fend.frontend_app()
+  File "/workspace/t3projects/sales/frontend.py", line 143, in frontend_app
+    response = agent.get_query_plan(st.session_state["messages"])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/t3projects/sales/llm_agent.py", line 46, in get_query_plan
+    for item in response["choices"]:
+                ~~~~~~~~^^^^^^^^^^^
+TypeError: string indices must be integers, not 'str'
+INFO:     127.0.0.1:36832 - "GET /leads?skip=0&limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34350 - "GET /leads?skip=0&limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56696 - "GET /leads?skip=0&limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55750 - "GET /leads/ HTTP/1.1" 307 Temporary Redirect
+INFO:     127.0.0.1:55750 - "GET /leads HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55758 - "GET /search_leads?search_type=name&search_query= HTTP/1.1" 200 OK
+INFO:     192.168.36.201:36836 - "GET / HTTP/1.1" 404 Not Found
+INFO:     192.168.36.201:36848 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     192.168.36.201:60822 - "GET / HTTP/1.1" 404 Not Found
+INFO:     192.168.36.201:60888 - "GET / HTTP/1.1" 404 Not Found
+INFO:     192.168.36.201:45778 - "GET /docs HTTP/1.1" 200 OK
+INFO:     192.168.36.201:45794 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     192.168.36.201:59222 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     192.168.36.201:43642 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59664 - "GET /leads?skip=0&limit=100 HTTP/1.1" 200 OK
